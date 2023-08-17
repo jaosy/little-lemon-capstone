@@ -73,14 +73,14 @@
 
 .footer {
 	display: grid;
-	grid-template-columns: repeat(4, auto);
+	grid-template-columns: repeat(4, 25%);
 	background-color: #495e57;
 	color: white;
 	padding: 1rem;
 }
 
 .footer img {
-	width: 50%;
+	width: 100%;
 }
 
 .footer ul {
