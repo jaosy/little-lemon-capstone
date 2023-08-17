@@ -1,0 +1,6 @@
+/* File: font.css */
+@font-face {
+    font-family: 'Karla';
+    src: local('Karla'),
+         url('assets/Karla-VariableFont_wght.ttf') format('truetype');
+}

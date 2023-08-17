@@ -36,3 +36,71 @@
     transform: rotate(360deg);
   }
 }
+
+.nav, .footer-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-bar-links ul, .footer-nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-bar-links li {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+.nav-bar-links a, .footer-nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar-links a:hover, .footer-nav-links a:hover {
+  color: #495E57;
+  transition: color 0.5s;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, auto)
+}
+
+.footer-nav-links {
+  font-weight: bold;
+}
+
+.footer img {
+  margin: auto;
+}
+
+.main-splash {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.main-card-section {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+}
+
+a, p, li {
+  font-family: 'Karla';
+}
+
+/* File: font.css */
+@font-face {
+    font-family: 'Karla';
+    src: local('Karla'),
+          url('assets/Karla-VariableFont_wght.ttf') format('truetype');
+}
