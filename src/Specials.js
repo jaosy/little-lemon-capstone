@@ -29,7 +29,12 @@ const food = [
 export default function Specials() {
 	return (
 		<div className="specials-div">
-			<h1>Specials</h1>
+			<div className="specials-div-header">
+				<h1>Specials</h1>
+				<a href="/order-online" className="link-button">
+					Order Online
+				</a>
+			</div>
 			<div className="specials-food-cards-div">
 				{" "}
 				{food.map((food, index) => (

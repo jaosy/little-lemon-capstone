@@ -11,7 +11,9 @@ const FoodCard = ({ food }) => {
 				<p>{food.description}</p>
 			</div>
 			<div className="food-card-footer">
-				Order{" "}
+				<a href="order-online" className="link-button">
+					Order
+				</a>
 				<img src={delivery} alt="delivery icon" className="delivery-icon"></img>
 			</div>
 		</div>

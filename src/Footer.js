@@ -20,10 +20,7 @@ export default function Footer() {
 						<a href="/reservations">Reservations</a>
 					</li>
 					<li>
-						<a href="/order">Order</a>
-					</li>
-					<li>
-						<a href="/online">Online</a>
+						<a href="/order-online">Order</a>
 					</li>
 					<li>
 						<a href="/login">Login</a>
