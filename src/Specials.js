@@ -3,6 +3,7 @@ import bruschettaImage from "./assets/bruschetta.png";
 import salad from "./assets/salad.png";
 import fish from "./assets/fish.png";
 import FoodCard from "./FoodCard";
+import { Link } from "react-router-dom";
 
 const food = [
 	{
@@ -31,9 +32,9 @@ export default function Specials() {
 		<div className="specials-div">
 			<div className="specials-div-header">
 				<h1>Specials</h1>
-				<a href="/order-online" className="link-button">
+				<Link className="link-button" to="/order-online">
 					Order Online
-				</a>
+				</Link>
 			</div>
 			<div className="specials-food-cards-div">
 				{" "}

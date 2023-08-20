@@ -12,9 +12,9 @@ export default function Splash() {
 					Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
 					consectetur, adipisci velit...
 				</p>
-				<a href="/" className="link-button">
+				<Link className="link-button" to="/reservations">
 					Reserve a table
-				</a>
+				</Link>
 			</div>
 			<img alt="Little Lemon restaurant food" src={splash}></img>
 		</section>
