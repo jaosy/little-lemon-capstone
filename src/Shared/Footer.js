@@ -1,5 +1,5 @@
 import React from "react";
-import logowhite from "../src/assets/logowhite.png";
+import logowhite from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

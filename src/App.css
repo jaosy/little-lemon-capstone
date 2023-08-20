@@ -196,6 +196,12 @@
 	width: max-content;
 }
 
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
 a,
 p,
 li {

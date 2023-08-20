@@ -1,14 +1,12 @@
 import React from "react";
-import Header from "./Header";
-import Nav from "./Nav";
+import Header from "../Shared/Header";
 import Main from "./Main";
-import Footer from "./Footer";
+import Footer from "../Shared/Footer";
 
 export default function Home() {
 	return (
 		<React.Fragment>
 			<Header />
-			<Nav />
 			<Main />
 			<Footer />
 		</React.Fragment>

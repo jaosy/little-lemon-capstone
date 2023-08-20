@@ -1,5 +1,5 @@
 import React from "react";
-import splash from "./assets/splash pic.png";
+import splash from "../assets/splash pic.png";
 import { Link } from "react-router-dom";
 
 export default function Splash() {

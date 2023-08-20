@@ -1,5 +1,5 @@
 import React from "react";
-import delivery from "./assets/delivery.png";
+import delivery from "../assets/delivery.png";
 import { Link } from "react-router-dom";
 
 const FoodCard = ({ food }) => {

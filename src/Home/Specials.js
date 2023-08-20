@@ -1,7 +1,7 @@
 import React from "react";
-import bruschettaImage from "./assets/bruschetta.png";
-import salad from "./assets/salad.png";
-import fish from "./assets/fish.png";
+import bruschettaImage from "../assets/bruschetta.png";
+import salad from "../assets/salad.png";
+import fish from "../assets/fish.png";
 import FoodCard from "./FoodCard";
 import { Link } from "react-router-dom";
 
