@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DateTime } from "luxon";
 
-export default function BookingForm() {
+export default function BookingForm({ availableTimes }) {
 	const earliestDate = DateTime.now().toFormat("yyyy-MM-dd").toString();
 	console.log(earliestDate);
 	const [date, setDate] = useState(earliestDate);
@@ -11,9 +11,9 @@ export default function BookingForm() {
 
 	return (
 		<React.Fragment>
-			<div className="booking-form-div">
+			<div className="booking-form-div" role="parent-container-booking-form">
 				<form className="booking-form">
-					<label for="res-date">Choose date</label>
+					<label htmlFor="res-date">Choose date</label>
 					<input
 						type="date"
 						id="res-date"
@@ -24,23 +24,20 @@ export default function BookingForm() {
 							console.log(e.target.value);
 						}}
 					/>
-					<label for="res-time">Choose time</label>
-					<select id="res-time ">
-						<option>17:00</option>
-						<option>18:00</option>
-						<option>19:00</option>
-						<option>20:00</option>
-						<option>21:00</option>
-						<option>22:00</option>
+					<label htmlFor="res-time">Choose time</label>
+					<select id="res-time">
+						{availableTimes.map((time) => (
+							<option>{time}</option>
+						))}
 					</select>
-					<label for="guests">Number of guests</label>
+					<label htmlFor="guests">Number of guests</label>
 					<input type="number" placeholder="1" min="1" max="10" id="guests" />
-					<label for="occasion">Occasion</label>
+					<label htmlFor="occasion">Occasion</label>
 					<select id="occasion">
 						<option>Birthday</option>
 						<option>Anniversary</option>
 					</select>
-					<input type="submit" value="Make Your reservation" />
+					<input type="submit" value="Make your reservation" />
 				</form>
 			</div>
 		</React.Fragment>

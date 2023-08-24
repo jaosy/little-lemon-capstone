@@ -5,7 +5,7 @@ import Specials from "./Specials";
 export default function Main() {
 	return (
 		<main className="main">
-			<div role="splash" className="main-splash">
+			<div role="splash-container" className="main-splash">
 				<Splash></Splash>
 			</div>
 			<section className="main-specials-section">

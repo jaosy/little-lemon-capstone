@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Splash() {
 	return (
-		<section className="splash-section">
-			<div className="splash-text-info">
+		<section className="splash-section" role="splash-content-container">
+			<div className="splash-text-info" role="splash-text-container">
 				<h1>Little Lemon</h1>
 				<h2>Chicago</h2>
 				<p>
