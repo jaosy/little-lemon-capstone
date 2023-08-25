@@ -1,13 +1,8 @@
-import {
-	render,
-	screen,
-	fireEvent,
-	getByText,
-	getAllByRole,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { useReducer } from "react";
 import BookingForm from "./BookingForm";
 import { DateTime } from "luxon";
+import { fetchAPI } from "../../FakeApi";
 
 test("Renders the input labels in BookingForm", () => {
 	const availableTimes = ["17:00", "18:00"];
@@ -32,43 +27,26 @@ test("Renders the input labels in BookingForm", () => {
 });
 
 test("Validate initializeTimes function returns correct expected value", () => {
-	const initializeTimes = () => [
-		"17:00",
-		"18:00",
-		"19:00",
-		"20:00",
-		"21:00",
-		"22:00",
-	];
+	const initializeTimes = () => {
+		return fetchAPI(new Date());
+	};
 
-	expect(initializeTimes()).toStrictEqual([
-		"17:00",
-		"18:00",
-		"19:00",
-		"20:00",
-		"21:00",
-		"22:00",
-	]);
+	expect(initializeTimes().length).toBeGreaterThan(0);
 });
 
 // https://testing-library.com/docs/example-react-hooks-usereducer/
 // At the time of writing, instructions from prev. implementation said to keep the state at the initial value
 test("Update times function returns the same value provided in the state", () => {
 	// initializer
-	const initializeTimes = () => [
-		"17:00",
-		"18:00",
-		"19:00",
-		"20:00",
-		"21:00",
-		"22:00",
-	];
+	const initializeTimes = () => ["12:00"];
+
+	const updatedTimes = fetchAPI(new Date(2024, 7, 24));
 
 	// reducer
 	function updateTimes(state = initializeTimes(), action) {
 		switch (action.type) {
 			case "Date changed":
-				return state;
+				return fetchAPI(new Date(2024, 7, 24));
 			default:
 				return state;
 		}
@@ -91,7 +69,7 @@ test("Update times function returns the same value provided in the state", () =>
 					onClick={() =>
 						dispatch({
 							type: "Date changed",
-							date: DateTime.now().toFormat("yyyy-MM-dd").toString(),
+							date: new Date(2023, 7, 24),
 						})
 					}>
 					Change date
@@ -101,12 +79,16 @@ test("Update times function returns the same value provided in the state", () =>
 	};
 
 	render(<Example />);
-	const availableTimesOptions = screen.getAllByRole("item").map((item) => {
+	let availableTimesOptions = screen.getAllByRole("item").map((item) => {
 		return item.textContent;
 	});
 	// check equal to initial
 	expect(availableTimesOptions).toStrictEqual(initializeTimes());
+	// click the button to fire dispatch event
 	fireEvent.click(screen.getByText("Change date"));
-	// check did not change and returns state
-	expect(availableTimesOptions).toStrictEqual(initializeTimes());
+	// check that times did change
+	availableTimesOptions = screen.getAllByRole("item").map((item) => {
+		return item.textContent;
+	});
+	expect(availableTimesOptions).not.toStrictEqual(initializeTimes());
 });

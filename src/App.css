@@ -147,6 +147,10 @@
 	color: #f4ce14;
 }
 
+.splash-section h2 {
+	color: white;
+}
+
 .splash-section img {
 	width: 60%;
 	margin: auto;
@@ -225,6 +229,13 @@
 	justify-content: center;
 }
 
+.confirmed-booking-div {
+	display: flex;
+	align-content: center;
+	margin: 2rem;
+	flex-direction: column;
+}
+
 a,
 p,
 li {
@@ -234,10 +245,6 @@ li {
 h1 {
 	font-family: "Markazi Text";
 	font-size: xxx-large;
-}
-
-h2 {
-	color: white;
 }
 
 /* File: font.css */

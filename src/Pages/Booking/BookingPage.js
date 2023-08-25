@@ -1,24 +1,24 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 import Header from "../../Shared/Header";
 import Footer from "../../Shared/Footer";
+import { fetchAPI, submitAPI } from "../../FakeApi";
 
 export default function BookingPage() {
+	const navigate = useNavigate();
+
 	// initializer
-	const initializeTimes = () => [
-		"17:00",
-		"18:00",
-		"19:00",
-		"20:00",
-		"21:00",
-		"22:00",
-	];
+	const initializeTimes = () => {
+		return fetchAPI(new Date());
+	};
 
 	const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
 	// reducer
-	function updateTimes() {
-		return availableTimes;
+	function updateTimes(availableTimes, date) {
+		const response = fetchAPI(new Date(date.date));
+		return response.length == 0 ? availableTimes : response;
 	}
 
 	// dispatch
@@ -26,6 +26,14 @@ export default function BookingPage() {
 	// to update what’s on the screen, call dispatch with an object representing what the user did, called an action:
 	const dispatchDateChanged = (date) => {
 		dispatch({ type: "changedDate", date: date });
+	};
+
+	const submitBooking = (formData) => {
+		console.log(formData);
+		const response = submitAPI(formData);
+		if (response) {
+			navigate("/booking-confirmed");
+		}
 	};
 
 	return (
@@ -36,6 +44,7 @@ export default function BookingPage() {
 				<BookingForm
 					availableTimes={availableTimes}
 					dispatchDateChanged={dispatchDateChanged}
+					onSubmit={submitBooking}
 				/>
 			</div>
 			<Footer />
