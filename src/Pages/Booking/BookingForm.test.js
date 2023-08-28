@@ -1,17 +1,18 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useReducer } from "react";
 import BookingForm from "./BookingForm";
-import { DateTime } from "luxon";
 import { fetchAPI } from "../../FakeApi";
 
 test("Renders the input labels in BookingForm", () => {
 	const availableTimes = ["17:00", "18:00"];
 	const dispatchDateChanged = jest.fn();
+	const onSubmit = jest.fn();
 
 	render(
 		<BookingForm
 			availableTimes={availableTimes}
 			dispatchDateChanged={dispatchDateChanged}
+			onSubmit={onSubmit}
 		/>
 	);
 
@@ -40,8 +41,6 @@ test("Update times function returns the same value provided in the state", () =>
 	// initializer
 	const initializeTimes = () => ["12:00"];
 
-	const updatedTimes = fetchAPI(new Date(2024, 7, 24));
-
 	// reducer
 	function updateTimes(state = initializeTimes(), action) {
 		switch (action.type) {
@@ -52,7 +51,7 @@ test("Update times function returns the same value provided in the state", () =>
 		}
 	}
 
-	const Example = () => {
+	const AvailableTimesComponent = () => {
 		const [availableTimes, dispatch] = useReducer(
 			updateTimes,
 			initializeTimes()
@@ -78,7 +77,7 @@ test("Update times function returns the same value provided in the state", () =>
 		);
 	};
 
-	render(<Example />);
+	render(<AvailableTimesComponent />);
 	let availableTimesOptions = screen.getAllByRole("item").map((item) => {
 		return item.textContent;
 	});
@@ -91,4 +90,70 @@ test("Update times function returns the same value provided in the state", () =>
 		return item.textContent;
 	});
 	expect(availableTimesOptions).not.toStrictEqual(initializeTimes());
+});
+
+test("Booking form has correct validation attributes applied to input fields", () => {
+	const availableTimes = ["17:00", "18:00"];
+	const dispatchDateChanged = jest.fn();
+	const onSubmit = jest.fn();
+
+	render(
+		<BookingForm
+			availableTimes={availableTimes}
+			dispatchDateChanged={dispatchDateChanged}
+			onSubmit={onSubmit}
+		/>
+	);
+
+	// required attribute
+	expect(
+		screen.getByLabelText("Contact email").getAttribute("required")
+	).not.toBeNull();
+	expect(
+		screen.getByLabelText("Choose date").getAttribute("required")
+	).not.toBeNull();
+	expect(
+		screen.getByLabelText("Choose time").getAttribute("required")
+	).not.toBeNull();
+	expect(
+		screen.getByLabelText("Number of guests").getAttribute("required")
+	).not.toBeNull();
+	expect(
+		screen.getByLabelText("Occasion").getAttribute("required")
+	).not.toBeNull();
+
+	// type attribute
+	expect(screen.getByLabelText("Contact email").getAttribute("type")).toEqual(
+		"email"
+	);
+	expect(screen.getByLabelText("Choose date").getAttribute("type")).toEqual(
+		"date"
+	);
+	expect(
+		screen.getByLabelText("Number of guests").getAttribute("type")
+	).toEqual("number");
+});
+
+test("Disables submit button if form fields are invalid", () => {
+	const availableTimes = ["17:00", "18:00"];
+	const dispatchDateChanged = jest.fn();
+	const onSubmit = jest.fn();
+
+	render(
+		<BookingForm
+			availableTimes={availableTimes}
+			dispatchDateChanged={dispatchDateChanged}
+			onSubmit={onSubmit}
+		/>
+	);
+
+	const emailField = screen.getByLabelText("Contact email");
+	const submitButton = screen.getByDisplayValue("Make your reservation");
+
+	fireEvent.change(emailField, { target: { value: "" } });
+	expect(screen.getByLabelText("Contact email").textContent).toBe("");
+
+	// button should be disabled, so submit action does not fire
+	fireEvent.click(submitButton);
+	expect(onSubmit).not.toHaveBeenCalled();
 });

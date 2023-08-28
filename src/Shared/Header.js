@@ -5,10 +5,10 @@ import logo from "../assets/Logo.svg";
 export default function Header() {
 	return (
 		<React.Fragment>
-			<div className="header">
+			<header className="header">
 				<img alt="Little Lemon" src={logo}></img>
 				<Nav></Nav>
-			</div>
+			</header>
 		</React.Fragment>
 	);
 }

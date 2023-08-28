@@ -12,6 +12,22 @@ export default function BookingForm({
 	const [guests, setGuests] = useState(1);
 	const [occasion, setOccasion] = useState("Dinner");
 	const [email, setEmail] = useState("abc@example.com");
+	const [disableSubmit, setDisableSubmit] = useState(false);
+
+	useEffect(() => {
+		if (
+			date === "" ||
+			email === "" ||
+			guests < 1 ||
+			guests > 10 ||
+			occasion === "" ||
+			time === ""
+		) {
+			setDisableSubmit(true);
+		} else {
+			setDisableSubmit(false);
+		}
+	}, [date, time, guests, occasion, email]);
 
 	return (
 		<React.Fragment>
@@ -20,6 +36,7 @@ export default function BookingForm({
 					<label htmlFor="email">Contact email</label>
 					<input
 						type="email"
+						required
 						id="email"
 						value={email}
 						onChange={(e) => {
@@ -29,6 +46,7 @@ export default function BookingForm({
 					<input
 						type="date"
 						id="res-date"
+						required
 						min={earliestDate}
 						value={date}
 						onChange={(e) => {
@@ -40,6 +58,7 @@ export default function BookingForm({
 					<select
 						id="res-time"
 						value={time}
+						required
 						onChange={(e) => setTime(e.target.value)}>
 						{availableTimes.map((time) => (
 							<option>{time}</option>
@@ -48,6 +67,7 @@ export default function BookingForm({
 					<label htmlFor="guests">Number of guests</label>
 					<input
 						type="number"
+						required
 						placeholder="1"
 						min="1"
 						max="10"
@@ -58,6 +78,7 @@ export default function BookingForm({
 					<label htmlFor="occasion">Occasion</label>
 					<select
 						id="occasion"
+						required
 						value={occasion}
 						onChange={(e) => setOccasion(e.target.value)}>
 						<option>Dinner</option>
@@ -65,7 +86,9 @@ export default function BookingForm({
 						<option>Anniversary</option>
 					</select>
 					<input
+						aria-label="Submit on click"
 						type="submit"
+						disabled={disableSubmit}
 						value="Make your reservation"
 						onClick={() => onSubmit({ email, date, time, guests, occasion })}
 					/>

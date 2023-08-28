@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 import Header from "../../Shared/Header";
@@ -7,6 +7,7 @@ import { fetchAPI, submitAPI } from "../../FakeApi";
 
 export default function BookingPage() {
 	const navigate = useNavigate();
+	const [showInvalidForm, setShowInvalidForm] = useState(false);
 
 	// initializer
 	const initializeTimes = () => {
@@ -28,8 +29,20 @@ export default function BookingPage() {
 		dispatch({ type: "changedDate", date: date });
 	};
 
+	const validateForm = (formData) => {
+		if (
+			formData.date === "" ||
+			formData.email === "" ||
+			formData.guests < 1 ||
+			formData.guests > 10 ||
+			formData.occasion === "" ||
+			formData.time === ""
+		) {
+			setShowInvalidForm(true);
+		}
+	};
+
 	const submitBooking = (formData) => {
-		console.log(formData);
 		const response = submitAPI(formData);
 		if (response) {
 			navigate("/booking-confirmed");
@@ -46,6 +59,7 @@ export default function BookingPage() {
 					dispatchDateChanged={dispatchDateChanged}
 					onSubmit={submitBooking}
 				/>
+				{showInvalidForm && <p>You did not fill out one of the fields</p>}
 			</div>
 			<Footer />
 		</React.Fragment>
