@@ -9,9 +9,10 @@ export default function Splash() {
 				<h1>Little Lemon</h1>
 				<h2>Chicago</h2>
 				<p>
-					Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-					consectetur, adipisci velit...
+					Mediterranean restaurant serving fresh ingredients with a friendly
+					smile.
 				</p>
+				<p>Order online, browse our menu or reserve a table now.</p>
 				<Link className="link-button" to="/reservations">
 					Reserve a table
 				</Link>

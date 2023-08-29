@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 import Header from "../../Shared/Header";
@@ -29,20 +29,17 @@ export default function BookingPage() {
 		dispatch({ type: "changedDate", date: date });
 	};
 
-	const validateForm = (formData) => {
+	const submitBooking = (formData) => {
 		if (
 			formData.date === "" ||
 			formData.email === "" ||
-			formData.guests < 1 ||
-			formData.guests > 10 ||
 			formData.occasion === "" ||
+			formData.guests === "" ||
 			formData.time === ""
 		) {
 			setShowInvalidForm(true);
 		}
-	};
 
-	const submitBooking = (formData) => {
 		const response = submitAPI(formData);
 		if (response) {
 			navigate("/booking-confirmed");

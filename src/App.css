@@ -78,6 +78,7 @@
 	color: white;
 	padding: 1rem;
 	overflow-wrap: break-word;
+	bottom: 0;
 }
 
 .footer img {
@@ -258,6 +259,24 @@
 .testimonial-picture img {
 	max-width: 100px;
 	padding-left: 1rem;
+}
+
+.about-content-text {
+	max-width: 50%;
+	margin-right: 2rem;
+}
+
+.about-content-div {
+	display: flex;
+	flex-direction: row;
+}
+
+.under-construction {
+	text-align: center;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 a,

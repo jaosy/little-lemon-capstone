@@ -29,8 +29,9 @@ const testimonialData = [
 export function Testimonals() {
 	return (
 		<section className="specials-div" role="testimonials-container">
-			<div className="specials-div-header"></div>
-			<h1>Testimonials</h1>
+			<div className="specials-div-header">
+				<h1>Testimonials</h1>
+			</div>
 			<div
 				className="specials-food-cards-div"
 				role="testimonials-cards-container">
