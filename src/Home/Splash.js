@@ -9,8 +9,8 @@ export default function Splash() {
 				<h1>Little Lemon</h1>
 				<h2>Chicago</h2>
 				<p>
-					Mediterranean restaurant serving fresh ingredients with a friendly
-					smile.
+					We are a family-owned Mediterranean restaurant, focused on traditional
+					recipes served with a modern twist.
 				</p>
 				<p>Order online, browse our menu or reserve a table now.</p>
 				<Link className="link-button" to="/reservations">

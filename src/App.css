@@ -1,50 +1,10 @@
-.App {
-	text-align: center;
-}
-
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
-}
-
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-link {
-	color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-.nav,
 .footer-nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	align-items: center;
 }
 
-.nav-bar-links ul,
 .footer-nav-links {
 	list-style-type: none;
 	margin: 0;
@@ -52,24 +12,25 @@
 	overflow: hidden;
 }
 
-.nav-bar-links li {
+/* .nav-bar-links li {
 	display: flex;
 	flex-direction: row;
 	float: left;
 	padding: 0.75rem;
 	font-weight: bold;
-}
+} */
 
-.nav-bar-links a {
-	color: black;
+/* .nav-bar-links a {
+	color: #495e57;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .nav-bar-links a:hover,
 .footer-nav-links a:hover {
-	color: #495e57;
+	color: #f4ce14;
 	transition: color 0.5s;
-}
+} */
 
 .footer {
 	display: grid;
@@ -115,7 +76,6 @@
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	padding: 5rem;
 	background-color: #495e57;
 }
 
@@ -143,6 +103,8 @@
 .splash-section {
 	display: grid;
 	grid-template-columns: repeat(2, auto);
+	margin-left: 18rem;
+	margin-right: 16rem;
 }
 
 .splash-section h1 {
@@ -154,9 +116,11 @@
 }
 
 .splash-section img {
-	width: 60%;
+	width: 70%;
 	margin: auto;
 	border-radius: 16px;
+	object-fit: cover;
+	margin-bottom: -7rem;
 }
 
 .food-card-img {
@@ -201,12 +165,12 @@
 	height: max-content;
 	width: max-content;
 }
-
+/* 
 .header {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-}
+} */
 
 .booking-page {
 	display: flex;
@@ -285,9 +249,29 @@ li {
 	font-family: "Karla";
 }
 
+a {
+	text-decoration: none;
+}
+
 h1 {
 	font-family: "Markazi Text";
 	font-size: xxx-large;
+}
+
+.container {
+	max-width: 61.625rem;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid {
+	display: grid;
+}
+
+* {
+	margin: 0;
+	padding: 0;
 }
 
 /* File: font.css */
