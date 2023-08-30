@@ -72,12 +72,12 @@
 	margin: auto;
 }
 
-.main-splash {
+/* .main-splash {
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	background-color: #495e57;
-}
+} */
 
 .specials-div {
 	display: flex;
@@ -100,7 +100,7 @@
 	overflow-x: auto;
 }
 
-.splash-section {
+/* .splash-section {
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 	margin-left: 18rem;
@@ -121,7 +121,7 @@
 	border-radius: 16px;
 	object-fit: cover;
 	margin-bottom: -7rem;
-}
+} */
 
 .food-card-img {
 	width: 100%;

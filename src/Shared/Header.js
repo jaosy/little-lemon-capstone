@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import "./layout.css";
+import "./Layout.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import "./layout.css";
+import "./Layout.css";
 
 export default function Header() {
 	const [isNavExpanded, setIsNavExpanded] = useState(false);
