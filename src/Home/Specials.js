@@ -4,6 +4,7 @@ import salad from "../assets/salad.png";
 import fish from "../assets/fish.png";
 import FoodCard from "./FoodCard";
 import { Link } from "react-router-dom";
+import "./Specials.css";
 
 const food = [
 	{
@@ -23,26 +24,24 @@ const food = [
 		name: "Grilled Fish",
 		pic: fish,
 		price: "$5.00",
-		description: `Yummy grilled fish with lemon garnish`,
+		description: `Yummy grilled fish with our award-winning lemon garnish. Choose between fresh Atlantic salmon, river tilapia or cod.`,
 	},
 ];
 
 export default function Specials() {
 	return (
-		<section className="specials-div" role="specials-container">
-			<div className="specials-div-header">
+		<section
+			className="container grid specials-section"
+			role="specials-container">
+			<div className="specials-header">
 				<h1>Specials</h1>
 				<Link className="link-button" to="/order-online">
 					Order Online
 				</Link>
 			</div>
-			<div
-				className="specials-food-cards-div"
-				role="specials-food-cards-container">
-				{food.map((food, index) => (
-					<FoodCard key={index} food={food}></FoodCard>
-				))}
-			</div>
+			{food.map((food, index) => (
+				<FoodCard key={index} food={food}></FoodCard>
+			))}
 		</section>
 	);
 }
