@@ -206,16 +206,6 @@
 	background-color: #495e57;
 } */
 
-.about-content-text {
-	max-width: 50%;
-	margin-right: 2rem;
-}
-
-.about-content-div {
-	display: flex;
-	flex-direction: row;
-}
-
 .under-construction {
 	text-align: center;
 }

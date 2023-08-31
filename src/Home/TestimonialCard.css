@@ -28,9 +28,10 @@ p {
 	color: black;
 }
 
-/*-- Media queries ------------------------------------------------------*/
-
-@media (max-width: 949px) {
+/*-- Mobile
+https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+@media (max-width: 992px) {
 	.testimonial-card {
 		grid-column: auto;
 		grid-row: auto;

@@ -17,9 +17,10 @@
 	color: #ffffff;
 }
 
-/*-- Media queries ------------------------------------------------------*/
-
-@media (max-width: 949px) {
+/*-- Mobile
+https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+@media (max-width: 992px) {
 	.testimonials .container {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(3, auto);
@@ -30,7 +31,7 @@
 	}
 }
 
-@media (max-width: 711px) {
+@media (max-width: 692px) {
 	.testimonials .container {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: repeat(3, auto);

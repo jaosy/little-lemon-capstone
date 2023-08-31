@@ -17,13 +17,13 @@
 	color: #f4ce14;
 }
 
-.splash-text-info h2,
-p {
+.splash-text-info h2 {
 	color: white;
 }
 
 .splash-text-info p {
 	margin-top: 1.5rem;
+	color: white;
 }
 
 .splash-text-info .link-button {
