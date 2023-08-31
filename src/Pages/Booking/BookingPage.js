@@ -1,8 +1,7 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
-import Header from "../../Shared/Header";
-import Footer from "../../Shared/Footer";
+import "./Booking.css";
 import { fetchAPI, submitAPI } from "../../FakeApi";
 
 export default function BookingPage() {

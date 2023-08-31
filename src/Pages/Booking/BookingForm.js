@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DateTime } from "luxon";
+import "./Booking.css";
 
 export default function BookingForm({
 	availableTimes,
