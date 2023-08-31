@@ -5,8 +5,8 @@ import "./about.css";
 export function About() {
 	return (
 		<section className="about">
-			<div id="about" className="container grid">
-				<div className="about-info">
+			<div className="container grid">
+				<div id="about" className="about-info">
 					<h1>About</h1>
 					<h2>Little Lemon Founders</h2>
 					<p>

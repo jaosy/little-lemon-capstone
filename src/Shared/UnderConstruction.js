@@ -1,4 +1,5 @@
 import React from "react";
+import "./UnderConstruction.css";
 
 export default function UnderConstruction() {
 	return (

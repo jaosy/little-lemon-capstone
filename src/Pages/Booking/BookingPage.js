@@ -48,7 +48,6 @@ export default function BookingPage() {
 
 	return (
 		<React.Fragment>
-			<Header />
 			<div className="booking-page">
 				<h1>Book Now</h1>
 				<BookingForm
@@ -58,7 +57,6 @@ export default function BookingPage() {
 				/>
 				{showInvalidForm && <p>You did not fill out one of the fields</p>}
 			</div>
-			<Footer />
 		</React.Fragment>
 	);
 }
