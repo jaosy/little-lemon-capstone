@@ -3,11 +3,13 @@
 	min-height: 6.25rem;
 }
 
-.header-logo {
+.header-logo,
+.footer-logo {
 	grid-column: 1;
 	justify-self: start;
 	align-self: center;
 	line-height: 0;
+	max-width: 16rem;
 }
 
 .header-logo img {
@@ -62,6 +64,41 @@
 	left: 0;
 }
 
+.footer {
+	background-color: #495e57;
+	color: white;
+}
+
+.footer .container {
+	grid-template-columns: repeat(4, auto);
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.footer h4 {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+}
+
+.footer a {
+	color: white;
+	transition: color 0.5s;
+}
+
+.footer a:hover {
+	color: #f4ce14;
+}
+
+.footer-nav {
+	grid-column: 2;
+}
+
+.footer-nav ul,
+.contact ul,
+.social-media ul {
+	list-style: none;
+}
+
 /*-- Mobile
 https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
 */
@@ -92,5 +129,34 @@ https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-
 
 	.nav-bar-links li {
 		flex-direction: column;
+	}
+
+	.footer .container {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto auto;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		gap: 1.5rem;
+	}
+
+	.footer-logo {
+		grid-row: 1;
+		grid-column: 1;
+		max-width: 100%;
+	}
+
+	.footer-nav {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	.contact {
+		grid-column: 1;
+		grid-row: 3;
+	}
+
+	.social-media {
+		grid-column: 1;
+		grid-row: 4;
 	}
 }
