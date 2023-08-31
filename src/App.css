@@ -202,28 +202,9 @@
 	flex-direction: column;
 }
 
-.main-testimonials-section {
+/* .main-testimonials-section {
 	background-color: #495e57;
-}
-
-.testimonial-name {
-	font-weight: bold;
-}
-
-.testimonial-card-div {
-	max-width: 80%;
-	display: flex;
-	flex-direction: row;
-	margin-right: 1rem;
-	background-color: white;
-	padding: 1rem;
-	border-radius: 16px;
-}
-
-.testimonial-picture img {
-	max-width: 100px;
-	padding-left: 1rem;
-}
+} */
 
 .about-content-text {
 	max-width: 50%;
