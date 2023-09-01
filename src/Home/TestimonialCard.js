@@ -1,36 +1,28 @@
-import React from "react";
-import star from "../assets/star.png";
+import { faStar, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./TestimonialCard.css";
 
-export default function TestimonialCard({ data }) {
-	const makeRating = () => {
-		let stars = [];
-		for (let i = 0; i < data.rating; i++) {
-			stars.push(
-				<span>
-					<img
-						width="8%"
-						src={star}
-						alt={data.rating + "star review"}
-						className="testimonial-star"></img>
-				</span>
-			);
-		}
+const ratingLevels = { 0.5: faStarHalfStroke, 1: faStar };
 
-		return stars;
-	};
-
+const TestimonialCard = ({ customer }) => {
 	return (
-		<article
-			className="testimonial-card-div"
-			role="testimonial-card-parent-container">
-			<div className="testimonial-info">
-				{makeRating()}
-				<p className="testimonial-name">{data.name}</p>
-				<p>{data.description}</p>
-			</div>
-			<div className="testimonial-picture">
-				<img src={data.pic} alt={data.name}></img>
-			</div>
+		<article className="testimonial-card">
+			<img src={customer.image} alt={customer.fullName} />
+			<h4>{customer.fullName}</h4>
+			<span>
+				{customer.rating.map((ratingPoint, index) => (
+					<FontAwesomeIcon
+						key={index}
+						icon={ratingLevels[ratingPoint]}
+						size="xs"
+					/>
+				))}
+			</span>
+			<blockquote>
+				<p>{customer.review}</p>
+			</blockquote>
 		</article>
 	);
-}
+};
+
+export default TestimonialCard;

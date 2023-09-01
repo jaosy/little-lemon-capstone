@@ -1,0 +1,68 @@
+.food-card {
+	grid-column: auto;
+	grid-row: 2;
+	min-height: fit-content;
+	padding-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	border-radius: 1rem;
+	overflow: hidden;
+	background-color: #edefee;
+}
+
+.food-card:hover .food-card-image img {
+	transform: scale(1.1);
+}
+
+.food-card-image img {
+	width: 100%;
+	height: 12.5rem;
+	object-fit: cover;
+	margin-bottom: 0.9375rem;
+	transition: all ease-in-out 0.3s;
+}
+
+.food-card-header,
+.food-card-info,
+.food-card-footer {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+
+.food-card-header {
+	display: flex;
+	gap: 1.25rem;
+	justify-content: space-between;
+	margin-bottom: 1.875rem;
+}
+
+.food-card-info p {
+	color: #495e57;
+}
+
+.food-card-header span {
+	color: #ee9972;
+	font-weight: bold;
+}
+
+.food-card-footer {
+	display: flex;
+	flex-direction: column;
+}
+
+.food-card-footer .link-button {
+	margin-top: 1.5rem;
+}
+
+.food-card-footer svg {
+	margin-left: 0.5rem;
+}
+
+/*-- Mobile
+https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+@media (max-width: 992px) {
+	.food-card {
+		grid-row: auto;
+	}
+}

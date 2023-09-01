@@ -6,9 +6,7 @@ import Footer from "../Shared/Footer";
 export default function Login() {
 	return (
 		<React.Fragment>
-			<Header />
 			<UnderConstruction />
-			<Footer />
 		</React.Fragment>
 	);
 }

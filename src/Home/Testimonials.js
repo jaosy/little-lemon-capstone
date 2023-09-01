@@ -1,44 +1,42 @@
-import React from "react";
-import TestimonialCard from "./TestimonialCard";
-import bob from "../assets/bob.jpg";
-import michelle from "../assets/michelle.jpg";
 import samara from "../assets/samara.jpg";
+import shaggy from "../assets/shaggy.jpg";
+import michelle from "../assets/michelle.jpg";
+import "./Testimonials.css";
+import TestimonialCard from "./TestimonialCard";
 
-const testimonialData = [
+const data = [
 	{
-		rating: 5,
-		name: "Bob",
-		description: "Lovely atmosphere and food, perfect for a dinner date",
-		pic: bob,
-	},
-	{
-		rating: 5,
-		name: "Michelle",
-		description: "Compliments to the chef! Everything was perfect.",
-		pic: michelle,
-	},
-	{
-		rating: 5,
-		name: "Samara",
-		description:
+		fullName: "Samara",
+		image: samara,
+		rating: [1, 1, 1, 1, 0.5],
+		review:
 			"The waiters were super attentive and made my celebration dinner an incredible event at Little Lemon.",
-		pic: samara,
+	},
+	{
+		fullName: "Michelle",
+		image: michelle,
+		rating: [1, 1, 1, 1, 1],
+		review: "Compliments to the chef! Everything was perfect.",
+	},
+	{
+		fullName: "Shaggy",
+		image: shaggy,
+		rating: [1, 1, 1, 1, 0.5],
+		review: "Has the best food in town, and its dog friendly too!",
 	},
 ];
 
-export function Testimonals() {
+const Testimonials = () => {
 	return (
-		<section className="specials-div" role="testimonials-container">
-			<div className="specials-div-header">
-				<h1>Testimonials</h1>
-			</div>
-			<div
-				className="specials-food-cards-div"
-				role="testimonials-cards-container">
-				{testimonialData.map((testimonial, index) => (
-					<TestimonialCard key={index} data={testimonial}></TestimonialCard>
+		<section className="testimonials">
+			<div className="container grid">
+				<h1>Diner Testimonials</h1>
+				{data.map((customer, index) => (
+					<TestimonialCard key={index} customer={customer} />
 				))}
 			</div>
 		</section>
 	);
-}
+};
+
+export default Testimonials;

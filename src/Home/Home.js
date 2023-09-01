@@ -6,9 +6,7 @@ import Footer from "../Shared/Footer";
 export default function Home() {
 	return (
 		<React.Fragment>
-			<Header />
 			<Main />
-			<Footer />
 		</React.Fragment>
 	);
 }
