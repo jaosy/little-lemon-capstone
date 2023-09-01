@@ -1,7 +1,7 @@
 import React from "react";
 import Splash from "./Splash";
 import Specials from "./Specials";
-import { Testimonals } from "./Testimonials";
+import Testimonials from "./Testimonials";
 import { About } from "./About";
 
 export default function Main() {
@@ -13,8 +13,8 @@ export default function Main() {
 			<section className="main-specials-section">
 				<Specials></Specials>
 			</section>
-			<section className="main-testimonials-section">
-				<Testimonals></Testimonals>
+			<section>
+				<Testimonials />
 			</section>
 			<section className="main-about-section">
 				<About></About>

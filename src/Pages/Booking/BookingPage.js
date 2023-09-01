@@ -1,8 +1,7 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
-import Header from "../../Shared/Header";
-import Footer from "../../Shared/Footer";
+import "./Booking.css";
 import { fetchAPI, submitAPI } from "../../FakeApi";
 
 export default function BookingPage() {
@@ -48,7 +47,6 @@ export default function BookingPage() {
 
 	return (
 		<React.Fragment>
-			<Header />
 			<div className="booking-page">
 				<h1>Book Now</h1>
 				<BookingForm
@@ -58,7 +56,6 @@ export default function BookingPage() {
 				/>
 				{showInvalidForm && <p>You did not fill out one of the fields</p>}
 			</div>
-			<Footer />
 		</React.Fragment>
 	);
 }

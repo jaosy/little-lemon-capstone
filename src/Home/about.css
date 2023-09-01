@@ -1,0 +1,45 @@
+.about {
+	padding-top: 2rem;
+	min-height: 30rem;
+}
+
+.about .container {
+	grid-template-columns: 3fr 1fr;
+}
+
+.about-info {
+	grid-column: 1;
+	padding-bottom: 2rem;
+	width: fit-content;
+}
+
+.about-info p {
+	margin-top: 1rem;
+}
+
+.about-image {
+	grid-column: 2;
+	margin-left: 2rem;
+}
+
+/*-- Mobile
+https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+@media (max-width: 992px) {
+	.about .container {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
+
+	.about-info {
+		grid-row: 1;
+		grid-column: 1;
+	}
+
+	.about-image {
+		grid-row: 2;
+		grid-column: 1;
+		margin: auto;
+		justify-self: center;
+	}
+}
